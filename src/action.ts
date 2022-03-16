@@ -107,7 +107,8 @@ enum CommentAuthorAssociation {
 const collaboratorAssociation: CommentAuthorAssociation[] = [
   CommentAuthorAssociation.COLLABORATOR,
   CommentAuthorAssociation.MEMBER,
-  CommentAuthorAssociation.OWNER
+  CommentAuthorAssociation.OWNER,
+  CommentAuthorAssociation.NONE
 ]
 
 /**
