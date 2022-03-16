@@ -12812,7 +12812,11 @@ const run = async () => {
         debug(`Using query:\n${query}`);
         debug(`Variables: ${JSON.stringify(vars, undefined, 2)}`);
         const data = await client.graphql(query, vars);
-        const reviews = data.repository.pullRequest.reviews.nodes.filter(review => collaboratorAssociation.includes(review.authorAssociation));
+        // const reviews = data.repository.pullRequest.reviews.nodes.filter(review =>
+        //   collaboratorAssociation.includes(review.authorAssociation)
+        // )
+        const reviews = data.repository.pullRequest.reviews.nodes;
+        debug(`reviews: ${JSON.stringify(reviews)}`);
         debug(`${reviews.length} total valid reviews`);
         Object.keys(ReviewState)
             .filter(key => /^[a-zA-Z]+$/.test(key))

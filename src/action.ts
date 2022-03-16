@@ -67,9 +67,12 @@ const run = async () => {
       }
     } = await client.graphql(query, vars)
 
-    const reviews = data.repository.pullRequest.reviews.nodes.filter(review =>
-      collaboratorAssociation.includes(review.authorAssociation)
-    )
+    // const reviews = data.repository.pullRequest.reviews.nodes.filter(review =>
+    //   collaboratorAssociation.includes(review.authorAssociation)
+    // )
+
+    const reviews = data.repository.pullRequest.reviews.nodes
+    debug(`reviews: ${JSON.stringify(reviews)}`)
 
     debug(`${reviews.length} total valid reviews`)
     Object.keys(ReviewState)
